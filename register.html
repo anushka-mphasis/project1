@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link href="Register.css" rel="stylesheet"></link>
+    <title>Register</title>
+    <style>
+        .logo:hover{
+            box-shadow: 1px 5px 7px 1px #5865f27d;
+            
+        }
+        
+    </style>
+   <script>
+        window.addEventListener("load", () => {
+        const loader = document.querySelector(".loader");
+
+        loader.classList.add("loader--hidden");
+
+        loader.addEventListener("transitionend", () => {
+        document.body.removeChild(loader);
+        });
+    });
+    </script>
+</head>
+
+<body>
+    <div class='header'>
+        <img src='mphasis.png' class='header-img' alt='mphasis'>
+        <h1 >MedTech</h1><h1 className='h1'>Chat</h1>
+        <div>
+           
+         </div>
+    </div>
+    <br/>
+    <br/>
+    {% with messages = get_flashed_messages(with_categories=true) %} 
+        {% if messages %} 
+        {% for category, message in messages %} 
+        {% if category =='error' %}
+
+        <div class="alert alert-danger alter-dismissable fade show" role="alert" style="color: rgba(240, 248, 255, 0.557); background-color:rgba(211, 17, 17, 0.447); width: fit-content ; left: 0px; top: 60px; position: relative; font-size: x-small; padding: 5px 0 5px 0;border-radius: 10px;">
+        {{ message }}
+        </div>
+        {% else %}
+        <div class="alert alert-success alter-dismissable fade show" role="alert" style="color: rgba(240, 248, 255, 0.557); background-color:rgba(69, 236, 36, 0.447);width: fit-content ; left: 0px; top: 60px; position: relative; font-size: x-small; padding: 5px 0 5px 0; border-radius: 10px;">
+        {{ message }}
+        </div>
+        
+        {% endif %}
+        {% endfor %} 
+        {% endif %} 
+        {% endwith %}
+        <div ng-app="" class='auth'>
+            <img src="icon1A.png" alt="imageIcon">
+            <h2 class="heading">Welcome to Myphasis</h2>
+               <div class='google-login'>
+                <img src="" class="'googleIcon">
+                <p class='googletext'>Continue  with  google</p>
+            </div>
+                <br/>
+                <h2 class="hr-lines">OR</h2>
+        <form method="POST">
+
+            <div class="input-field">
+                <input type="email" class='name-sign' placeholder="Email" id="email" name="email">
+                <i class='bx bx-envelope' ></i>
+            </div>
+<br/>
+            <div class="input-field">
+                <input type="text" class='last-sign' placeholder="Username" id="username" name="username">
+                <i class='bx bx-user' ></i>
+            </div>
+            <br/>
+            <div class="input-field">
+                <input type="Password" class='email-sign' placeholder="Password" id="password1" name="password1">
+                <i class='bx bx-lock-alt'></i>
+            </div>
+<br/>
+            <div class="input-field">
+                <input type="Password" class='password-sign' placeholder=" Confirm Password" id="password2" name="password2">
+                <i class='bx bx-lock'></i>
+            </div>
+    
+            <!--<div class="two-col">
+                <div class="one">
+                <input type="radio" name="authority" id="admin" value="admin">
+                <label for="admin">Admin</label>
+                <i2 class='bx bx-briefcase'></i2>
+                &nbsp;&nbsp;&nbsp;
+                <input type="radio" name="authority" id="employee" value="employee">
+                <label for="employee">Employee</label>
+                <i2 class='bx bx-briefcase-alt'></i2>
+                </div>
+            </div> -->
+
+            <div class="input-field">
+                <input type="submit" class="login-btn"  value="Register" id="submit" name="submit">
+            </div>
+            <p class='sign-text'>Already an User ?<a href='login.html' className='sign' onClick={signbtn}>Login Now</a></p>
+   
+    <br/>
+
+
+        
+    </div>
+</div>  
+</body>
+</html>

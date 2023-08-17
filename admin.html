@@ -1,0 +1,189 @@
+<!doctype html>
+<head>
+    <title>Hello User</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+   <link rel="stylesheet" href="admin.css"></link>
+   <script>
+      function getInput() {
+          var userInput = document.getElementById('userInput').value;
+          alert('User Input: ' + userInput);
+      }
+  </script>
+ <style>
+    .btn{
+    
+    font-size: 15px;
+    
+    outline: none;  
+    color: black;
+    background: rgba(255,255,255,0.7);
+    cursor: pointer;
+    transition: .3s ;
+    }
+    .btn:hover{
+    box-shadow: 1px 5px 7px 1px #5865f27d;}
+    .navbar-brandlogo:hover{
+    box-shadow: 1px 5px 7px 1px #5865f27d;
+    }
+    
+  </style> 
+</head>
+<html>
+   <body > 
+    
+      <div class='header'>
+        <img src='mphasis.png' class='header-img' alt='mphasis'>
+        <h1 >MedTech</h1><h1 className='h1'>Chat</h1>
+        <ul class="nav-links">   
+          <li class="icon1">
+            <div class="dropdown">
+               <span>Profile</span>
+               <div class="dropdown-content">
+               <a href="admin.html">Admin</a><br>
+               <a href="login.html">Logout</a>
+               </div>
+             </div>
+        </li>
+        <li>
+         <i class="bi bi-moon icon" title="DarkMode"></i>
+        </li>
+        <li>
+         <i class="bi bi-clock-history icon " title="history"></i>
+      </li> 
+        </ul>
+    </div>
+      
+    
+    <div class='body-admin'>
+      <div class='admin'> 
+         <h3>Reference Documents</h3>
+        
+         <div class="container col-md-6 mx-auto text-center my-4" style=" border-radius: 30px; padding: auto;">
+          <i class="bi bi-cloud-arrow-up" style="color: #c10f71; font-size: 50px;"></i>
+          {% for item in documents %}
+            <p style="text-align: center; font-weight:lighter; color: black;">
+              <b>
+                <input type="checkbox" class="form-check-input" 
+                                name="fileList" value = {{item}}>{{ item }}      
+              </b>
+            </p>
+            
+            
+            {% endfor %}
+
+          <form action="/urlsuccess" method="post">
+           <table>
+            <tr>
+              <td>
+                <input type="text" placeholder="Enter URL" name="url" id="url"  class="px-4 gap-1 mr-1">
+              </td>
+              <td>
+                <input type="submit" class="upload"  value="Fetch HTML">
+              </td>
+            </tr>
+            
+           </table>
+        
+            
+            
+           <hr>
+          </form>
+
+          <form action = "/success" method = "post" enctype="multipart/form-data"> 
+            <table>
+              <tr>
+                <td>
+                  <input type="file" name="file" class="form-control "/>
+                </td>
+                <td>
+                  <input type = "submit"  class="upload"
+                        value="Upload"> 
+                </td>
+              </tr>
+            </table>
+           
+           
+                  
+                <hr>
+          <table>
+            <tr class="btn-upload">
+              <td>
+                <p style= " color: black; font-size: smaller;" class="col-xxl-6 col-md-8 col-xs-12">Remove file, select and click</p>
+              </td>
+              <td>
+                <button type = "submit"  class="upload" 
+                value="Remove" id="RemoveButton" formaction="remove"  >Remove <i class="bi bi-eraser"></i></button>  
+              </td>
+            </tr>
+           
+            
+          </table>
+            <hr>
+            <table>
+              <tr>
+                <td>
+                  <p style="color: black; font-size: smaller;" class=" col-xxl-6 col-md-8 col-xs-12">Process all documents </p>
+                </td>
+                <td>
+                  <button type = "submit" class="upload" 
+                  value="Process" id="ProcessDoc" formaction="analyze_docs" >Process <i class="bi bi-arrow-clockwise"></i></button>
+                </td>
+              </tr>
+            </table>
+                  
+                         
+             
+
+
+           
+               
+             
+              
+          
+                
+          </form>
+          &nbsp;
+
+        </div> 
+        <a class='prompt' href="prompt.html">Prompt Management</a>
+ <a href='index.html' class='users-nav'>Users</a>
+ <br/><br/>
+  </div>
+  
+
+         </div>
+     </main>      
+     
+     <script
+     src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+     crossorigin="anonymous"
+     ></script>
+     <script
+     src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+     crossorigin="anonymous"
+     ></script>
+     <script
+     src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+     crossorigin="anonymous"
+     ></script>
+     
+   {% block javascript %}
+       <script type="text/javascript">
+         function deleteNote(noteId) {
+   fetch("/delete-note", {
+       method: "POST",
+       body: JSON.stringify({ noteId: noteId }),
+   }).then((_res) => {
+     window.location.href = "/";
+   });
+   }
+       </script>
+   {% endblock %}
+  
+   </body>
+</html>

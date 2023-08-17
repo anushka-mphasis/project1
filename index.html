@@ -1,0 +1,147 @@
+<!doctype html>
+<head>
+    <title>Helper</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+   <link rel="stylesheet" href="index.css"></link>
+   
+    <script>
+      window.addEventListener("load", () => {
+      const loader = document.querySelector(".loader");
+
+      loader.classList.add("loader--hidden");
+
+      loader.addEventListener("transitionend", () => {
+        document.body.removeChild(loader);
+      });
+    });
+
+    </script>
+</head>
+<html>
+   <body>
+   
+    <div class='header'>
+      <img src='mphasis.png' class='header-img' alt='mphasis'>
+      <h1 >MedTech</h1><h1 className='h1'>Chat</h1>
+      
+        <ul class="nav-links">   
+          <li class="icon1">
+            <div class="dropdown">
+               <span>Profile</span>
+               <div class="dropdown-content">
+               <a href="admin.html">Admin</a><br>
+               <a href="login.html">Logout</a>
+               </div>
+             </div>
+        </li>
+        <li>
+         <i class="bi bi-moon icon" title="DarkMode"></i>
+        </li>
+        <li>
+         <i class="bi bi-clock-history icon " title="history"></i>
+      </li> 
+        </ul>
+       
+  </div>
+  <div class="body-chat">
+    <div class='chat text-center'>
+      <img src="medTek.png" alt="imageIcon" class="home-icon">
+      <p class='text-chat'>Welcome to Mphasis MedTech Chat <i class="bi bi-chat-square-dots" style="font-size: 40px; color:#c20492"></i>
+      <br/>
+      </p>
+      </div><br/>
+      <form method="post" action="hello">
+        <div class="display-users">
+         
+            {% for keys,values in response.items() %}
+           
+                <div class="question-div"> 
+                 
+                  <div class="avatar">
+                    <i class="bi bi-person-circle profile-image"></i>
+                  </div>   
+                  <div class="message"  style="text-align: left;">{{ keys }}</div>
+                </div>
+              
+                <div class="answer-div">
+                  <div class="avatar">
+                  
+                  </div>
+                  <div class="message" id="text" style="text-align: left;">{{  values }}</div>
+                </div>
+                
+               
+            {% endfor %}
+      <div class="input-question">
+       
+                
+          <!-- <p class="lead mb-2">Could you please tell me your name?</p> -->
+          <button type="submit" class="reset" formaction="reset">New Chat</button>
+          <textarea class='submit' id="name" name="name" placeholder="Ask Me anything" ></textarea>
+         
+          
+            <button type="submit" class="sendIcon">Submit</button>
+            
+                   
+      
+      </div>
+      
+    </div>
+       
+      
+       
+       
+               
+
+   
+        
+
+     
+     <script
+     src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+     crossorigin="anonymous"
+     ></script>
+     <script
+     src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+     crossorigin="anonymous"
+     ></script>
+     <script
+     src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+     crossorigin="anonymous"
+     ></script>
+     
+   {% block javascript %}
+       <script type="text/javascript">
+        const textElement = document.getElementById('text');
+const textToType = "Hello, Typewriter Effect!Hello, Typewriter Effect!Hello, Typewriter Effect!Hello, Typewriter Effect!Hello, Typewriter Effect!Hello, Typewriter Effect!Hello, Typewriter Effect!";
+let index = 0;
+
+function typeText() {
+    if (index < textToType.length) {
+        textElement.textContent += textToType.charAt(index);
+        index++;
+        setTimeout(typeText, 100); // Adjust the delay between characters (in milliseconds)
+    }
+}
+
+// Start the typewriting effect when the page loads
+window.onload = typeText;
+         function deleteNote(noteId) {
+   fetch("/delete-note", {
+       method: "POST",
+       body: JSON.stringify({ noteId: noteId }),
+   }).then((_res) => {
+     window.location.href = "/";
+   });
+   }
+   
+       </script>
+   {% endblock %}
+    
+   </body>
+</html>

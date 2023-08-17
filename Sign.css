@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+.headingS{
+    font-family: 'Zilla Slab', serif;
+    margin-top: 0rem;
+    text-align: center;
+    margin-left: 1.5%;
+    font-size: 29px;
+    color:#c10f71;
+    letter-spacing: 0.1rem;
+   margin-top: 5%;
+}
+
+.name-sign{
+ width:34%;
+ border-bottom: 3px solid black;
+ margin-left: 2%;
+ border-top:none;
+    border-right:none;
+    border-left:none;
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+} 
+.last-sign{
+  width:34%;
+  border-bottom: 3px solid black;
+  margin-left: 3%;
+  border-top:none;
+    border-right:none;
+    border-left:none;
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+}
+.email-sign,.password-sign{
+  margin-left: 1.2rem;
+  margin-top: 7%;
+  width:21rem; 
+  border-top:none;
+  border-right:none;
+  border-left:none;
+  border-bottom: 3px solid black;
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
+}

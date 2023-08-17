@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prompt Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="prompt.css"></link>
+    <style>
+    </style>
+</head>
+<body>
+  <div class='header'>
+    <img src='mphasis.png' class='header-img' alt='mphasis'>
+    <h1 >MedTech</h1><h1 className='h1'>Chat</h1>
+    
+    <ul class="nav-links">   
+      <li class="icon1">
+        <div class="dropdown">
+           <span>Profile</span>
+           <div class="dropdown-content">
+           <a href="admin.html">Admin</a><br>
+           <a href="login.html">Logout</a>
+           </div>
+         </div>
+    </li>
+    <li>
+     <i class="bi bi-moon icon" title="DarkMode"></i>
+    </li>
+    <li>
+     <i class="bi bi-clock-history icon " title="history"></i>
+  </li> 
+    </ul>
+     </div>
+     <div class="body-admin">
+     <div class='promptDiv'>
+      <h3 style="margin-left: 2%;">Select prompt </h3><hr>
+      <form method="POST" action="/"></form>
+        <table>
+       <tr>
+         <td> <label for="user_input" style="text-align: center; color: black;" class="fs-6">New prompt  <i class="bi bi-plus-circle"></i></label>
+          <input type="text" id="user_input" name="user_input" style="text-align: center; border-radius: 15px; width: 300px; height: 30px;" class="mx-2">
+         </td>
+         <td>
+          <button type="submit" formaction="NewPromt" value="New Prompt" class="btn  px-4 gap-3" style="border-radius: 15px;" >
+            <i class="bi bi-plus-circle"></i></button>
+         </td>
+       </tr>
+     
+      </table>
+      </form>
+      <form method="POST" action="/">
+      <table>
+        <tr>
+          <td>
+            <label for="promptOption" style="text-align: center; color: black;" class="fs-6">Select prompt  <i class="bi bi-check2-circle"></i></label>
+          <select id="promptOption" name="promptOption" style="width: 300px; border-radius: 15px; height: 30px; object-fit:cover;" class=" mx-2" >
+            {% for item in comboList %}
+                <option value="{{item}}"  class="w-20" style="width: 50px; ">{{item}}</option>     
+            {% endfor %}
+            </select>
+          </td>
+          <td>
+            <button type="submit" formaction="SelectedPrompt" value="Select Prompt" class="btn px-4 gap-3" style="border-radius: 15px;">
+              <i class="bi bi-check2-circle"></i></button>
+          </td><hr/>
+        </tr>
+      </table>
+    </form>
+     <br/>
+     <a  class='adminBtn' href="admin.html" >Admin</a>
+     <a href='index.html' class='users-nav'>Users</a>
+     <br/><br/>
+        </div>
+     </div>
+    
+    
+
+  
+    
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"
+    ></script>
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"
+    ></script>
+    <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"
+    ></script>
+    
+  {% block javascript %}
+      <script type="text/javascript">
+        function deleteNote(noteId) {
+  fetch("/delete-note", {
+      method: "POST",
+      body: JSON.stringify({ noteId: noteId }),
+  }).then((_res) => {
+    window.location.href = "/";
+  });
+  }
+      </script>
+  {% endblock %}
+
+</body>
+</html>

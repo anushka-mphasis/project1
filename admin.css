@@ -1,0 +1,252 @@
+.header{
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+ 
+background-color:transparent;
+ box-shadow: 2px 2px 4px grey;
+  
+  z-index: 5;
+}
+.header-img{
+width:10%;
+margin-left: 2%;
+}
+h1{
+  margin-left:1%;
+  font-family: 'Josefin Sans', sans-serif;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-transform: uppercase;
+background-image: linear-gradient(
+  -225deg,
+  #e30079 0%,
+  #b11472 29%,
+  #b30464 67%,
+  #fff800 100%
+);
+background-size: auto auto;
+background-clip: border-box;
+background-size: 200% auto;
+color: #fff;
+background-clip: text;
+text-fill-color: transparent;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+animation: textclip 2s linear infinite;
+display: inline-block;
+    
+}
+.nav-links {
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  
+  justify-content: center;
+  align-items: center;
+  font-family: 'Mukta', sans-serif;
+}
+
+
+.nav-links li {
+  float: right;
+
+padding-right: 7%;
+padding-top: 2%;
+}
+
+
+
+
+
+
+
+.dark-icon{
+ margin-left: 3030%;
+ color:#b30464;
+ cursor: pointer;
+}
+.dark-icon:hover{
+background-color:#f7e1ed;
+border-radius: 5px;
+}
+.history-icon{
+margin-left: 2950%;
+color:#b30464;
+cursor: pointer;
+}
+.history-icon:hover{
+border-radius: 5px;
+background-color:#f7e1ed;
+}
+.dropdown-content div{
+border-bottom: 2px solid rgb(219, 219, 209);
+
+}
+.dropdown-content div:hover{
+background-color:#f7e1ed;
+}
+.icon{
+color:#b30464;
+font-size: 25px;
+}
+.icon:hover{
+border-radius: 5px;
+background-color:#f7e1ed;
+}
+.icon1{
+font-size: 25px;
+
+}
+.dropdown {
+position: relative;
+display: inline-block;
+}
+
+.dropdown-content {
+display: none;
+position: absolute;
+background-color: #f9f9f9;
+min-width: 160px;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+padding: 12px 16px;
+z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+display: block;
+}
+  .admin{
+    border:2px solid rgb(212, 209, 209);
+    width:50%;
+    margin-left: 25%; 
+    margin-top: 8%;
+    border-radius: 5px;
+    font-family: 'Open Sans', sans-serif;
+    animation: move 1s;
+    animation-iteration-count: 1;
+    color:black
+}
+.admin:hover{
+    box-shadow: 2px 2px 2px grey;
+}
+.promptDiv{
+    border:2px solid rgb(212, 209, 209);
+    width:50%;
+    margin-left: 25%; 
+    margin-top: 10%;
+    border-radius: 5px;
+    animation: move 1s;
+    animation-iteration-count: 1;
+}
+.promptDiv:hover{
+    box-shadow: 2px 2px 2px grey;
+}
+@keyframes move{
+    0%, 20%{
+        transform: translateY(-530px)
+      }
+    100% {
+        transform: translatex(0)
+      }
+}
+.admin img{
+     width:15%;
+     margin-top:-5%;
+     border-radius: 3%;
+}
+ td {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+   text-align:left;
+   
+  }
+  
+  table {
+    width: 85%;
+   margin-left: 6%;
+   
+  }
+  .user{
+margin-top: 2%;
+ height: 34px;
+border: 1px solid #e6075c; 
+border-radius: 4px; 
+background: #e6075c; 
+color: rgb(231, 225, 225); 
+cursor: pointer; 
+  }
+  .prompt{
+    margin-left:3%;
+    color:#e6075c;
+    text-decoration: underline;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+  }
+  .prompt:hover{
+    color:#ff478e;
+  }
+  .adminBtn{
+    margin-left: -70%;
+    color:#e6075c;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .adminBtn:hover{
+    color:#ff478e;
+  }
+  input[type="file"]::file-selector-button {
+    border-radius: 4px;
+    padding: 3 13px;
+    height: 40px;
+    color:white;
+    cursor: pointer;
+    background-color: #c10f71;
+    border-bottom: 1px solid #c10f71;
+    border-top: 1px solid #c10f71;
+    border-left: 1px solid #c10f71;
+    border-right: 1px solid white;
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+    margin-right: 16px;
+    transition: background-color 200ms;
+  }
+  input[type='file']::file-selector-button:hover{
+    background-color: #d62d8a;
+  }
+  .select-prompt{
+    width:90%;
+    height: 35px;
+    font-family: 'Open Sans', sans-serif;
+  }
+  .users-nav{
+   float: right;
+   margin-right: 8%;
+   color:#e6075c;
+   text-decoration: underline;
+   cursor: pointer;
+   font-family: 'Open Sans', sans-serif;
+  }
+  .users-nav:hover{
+    color:#ff478e;
+  }
+  .upload{
+    border-radius: 4px;
+     width: 90%;
+     height: 40px;
+     cursor: pointer;
+     background-color: #c10f71;
+     border: 1px solid #c10f71;
+     box-shadow: 0px 1px 0px #0000000d;
+     margin-left: 16px;
+     color:white;
+     transition: background-color 200ms;
+     font-family: 'Open Sans', sans-serif;
+ }
+ .upload:hover{
+    background-color: #ed409f;
+ }
